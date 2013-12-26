@@ -2,10 +2,7 @@ package ringraetsel;
 
 import ringraetsel.AbstracZustand;
 
-
 public class ZustandEindeutigeKugeln extends AbstracZustand<Integer> {
-
-    
 
     /*
      * 1. Schnittpunkt: rechts[0]=links[0]
@@ -17,22 +14,17 @@ public class ZustandEindeutigeKugeln extends AbstracZustand<Integer> {
 
     public void reset() {
 	Integer counter = 0;
-	for (int i = 1; i < 11; i++) {
+	for (int i = 0; i < 20; i++) {
 	    rechts.set(i, new Integer(counter++));
 	}
-	for (int i = 11; i < 20; i++) {
-	    rechts.set(i, new Integer(counter++));
+	for (int i = 1; i < 20; i++) {
+	    if (i != 15) {
+		links.set(i, new Integer(counter++));
+	    }
 	}
 	links.set(15, new Integer(rechts.get(15)));
+	links.set(0, new Integer(rechts.get(15)));
 
-	for (int i = 16; i < 26; i++) {
-	    links.set(i % 20, new Integer(counter++));
-	}
-	rechts.set(0, new Integer(links.get(0)));
-
-	for (int i = 26; i < 26 + 9; i++) {
-	    links.set(i % 20, new Integer(counter++));
-	}
     }
 
     public ZustandEindeutigeKugeln() {
@@ -43,6 +35,5 @@ public class ZustandEindeutigeKugeln extends AbstracZustand<Integer> {
 
 	reset();
     }
-    
 
 }

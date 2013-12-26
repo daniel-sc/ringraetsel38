@@ -131,7 +131,7 @@ public class Main {
 	    ZustandEindeutigeKugeln start) {
 	if (zugfolge.size() == 0)
 	    return;
-	List<Aenderung> diff = start.vergleichen(zustanede.get(zustanede.size() - 1), 5);
+	List<Aenderung> diff = zustanede.get(zustanede.size() - 1).vergleichen(start, 5);
 	if (diff.size() < 5) {
 	    System.out.println();
 	    System.out.println("Check minimal (" + diff.size() + "):");
@@ -146,7 +146,7 @@ public class Main {
 	    ZustandEindeutigeKugeln start) {
 	if (zugfolge.size() == 0)
 	    return;
-	List<Aenderung> diff = start.vergleichen(zustand, 5);
+	List<Aenderung> diff = zustand.vergleichen(start, 5);
 	if (diff.size() < 5) {
 	    System.out.println();
 	    System.out.println("Check minimal (" + diff.size() + "):");

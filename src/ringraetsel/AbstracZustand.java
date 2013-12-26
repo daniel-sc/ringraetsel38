@@ -14,7 +14,8 @@ public abstract class AbstracZustand<T> {
     
         @Override
         public String toString() {
-            return index_linear + ": " + war + "->" + ist;
+	    // return index_linear + ": " + war + "->" + ist;
+	    return war + "->" + ist;
         }
     }
 
