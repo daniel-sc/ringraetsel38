@@ -26,7 +26,15 @@ public class Main {
 	// daniel();
 	Date start = new Date();
 	// tiefensuche(6, new ZustandEindeutigeKugeln());
-	tiefensucheNoStore(6, new ZustandEindeutigeKugeln());
+	tiefensucheNoStore(6, new ZustandEindeutigeKugeln(), new CheckResult() {
+	    
+	    @Override
+	    public void checkMinimalDrehung(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
+		    ZustandEindeutigeKugeln start) {
+		checkMinimalDrehungOld(zugfolge, zustand, start);
+		
+	    }
+	});
 	Date end = new Date();
 
 	System.out.println("TIME: " + (end.getTime() - start.getTime()) / 1000 + " sek");
@@ -72,6 +80,11 @@ public class Main {
 	}
     }
 
+    /**
+     * @deprecated use {@link #tiefensucheNoStore(int, ZustandEindeutigeKugeln)}
+     * @param tiefe
+     * @param start
+     */
     public static void tiefensuche(int tiefe, ZustandEindeutigeKugeln start) {
 
 	List<Integer> zugfolge = new ArrayList<Integer>();
@@ -79,7 +92,7 @@ public class Main {
 
 	while (!isDone(zugfolge, tiefe)) {
 
-	    checkMinimalDrehung(zugfolge, zustanede, start);
+	    checkMinimalDrehungOld(zugfolge, zustanede, start);
 
 	    int size = zugfolge.size();
 	    if (size < tiefe) {
@@ -127,27 +140,20 @@ public class Main {
      * @param zustanede
      * @param start
      */
-    private static void checkMinimalDrehung(List<Integer> zugfolge, List<ZustandEindeutigeKugeln> zustanede,
+    private static void checkMinimalDrehungOld(List<Integer> zugfolge, List<ZustandEindeutigeKugeln> zustanede,
 	    ZustandEindeutigeKugeln start) {
 	if (zugfolge.size() == 0)
 	    return;
-	List<Aenderung> diff = zustanede.get(zustanede.size() - 1).vergleichen(start, 5);
-	if (diff.size() < 5) {
-	    System.out.println();
-	    System.out.println("Check minimal (" + diff.size() + "):");
-	    System.out.println("zugfolge: " + zugfolge);
-	    System.out.println("diff:");
-	    System.out.println(diff);
-	    // todo: anschauliche ausgabe
-	}
+	else
+	    checkMinimalDrehungOld(zugfolge, zustanede.get(zustanede.size() - 1), start);
     }
 
-    private static void checkMinimalDrehung(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
+    private static void checkMinimalDrehungOld(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
 	    ZustandEindeutigeKugeln start) {
 	if (zugfolge.size() == 0)
 	    return;
-	List<Aenderung> diff = zustand.vergleichen(start, 5);
-	if (diff.size() < 5) {
+	List<Aenderung> diff = zustand.vergleichen(start, 7);
+	if (diff.size() < 7) {
 	    System.out.println();
 	    System.out.println("Check minimal (" + diff.size() + "):");
 	    System.out.println("zugfolge: " + zugfolge);
@@ -166,7 +172,7 @@ public class Main {
 	return true;
     }
 
-    public static void tiefensucheNoStore(int tiefe, ZustandEindeutigeKugeln start) {
+    public static void tiefensucheNoStore(int tiefe, ZustandEindeutigeKugeln start, CheckResult resultChecker) {
 
 	List<Integer> zugfolge = new ArrayList<Integer>();
 
@@ -175,7 +181,7 @@ public class Main {
 
 	while (!isDone(zugfolge, tiefe)) {
 
-	    checkMinimalDrehung(zugfolge, current, start);
+	    resultChecker.checkMinimalDrehung(zugfolge, current, start);
 
 	    int size = zugfolge.size();
 	    if (size < tiefe) {

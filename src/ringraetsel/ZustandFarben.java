@@ -2,14 +2,9 @@ package ringraetsel;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import ringraetsel.ZustandFarben.Farbe;
+import static ringraetsel.Farbe.*;
 
 public class ZustandFarben extends AbstracZustand<Farbe>{
-
-    public enum Farbe {
-	R, B, S, G;
-    }
 
     List<Farbe> rechts = new ArrayList<Farbe>(20);
     List<Farbe> links = new ArrayList<Farbe>(20);
@@ -26,6 +21,7 @@ public class ZustandFarben extends AbstracZustand<Farbe>{
 	for (int i = 1; i < 11; i++) {
 	    rechts.set(i, Farbe.R);
 	}
+	
 	for (int i = 11; i < 20; i++) {
 	    rechts.set(i, Farbe.S);
 	}
