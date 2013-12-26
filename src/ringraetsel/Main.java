@@ -12,70 +12,38 @@ public class Main {
     public static void main(String[] args) {
 
 	Date startZeit = new Date();
-	// tiefensuche(6, new ZustandEindeutigeKugeln());
-
-	// tiefensucheNoStore(6, start, new CheckResult() {
-	//
-	// @Override
-	// public void checkResult(List zugfolge, AbstracZustand current,
-	// AbstracZustand start) {
-	// if (ziel.equals(current)) {
-	// System.out.println("YEAY!!");
-	// System.out.println(zugfolge);
-	// }
-	//
-	// }
-	//
-	// }, ZustandFarben.class);
 
 	final List<List<Integer>> basicMoves = getBasicMoves();
 
 	System.out.println("anzahl basic moves: " + basicMoves.size());
 
-	final ZustandFarben start = new ZustandFarben();
-	start.problem();
 	final ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
+	final ZustandFarben start = new ZustandFarben();
+	start.problem();
+	Integer[] firstMoves = new Integer[] { 1, 15, 5, 5, 14, 15, 15, 5, 5, 19, 15, 5, 5, 16, 15, 15, 5, 5, 9, 15,
+		15, 5, 16 };
+	int i = 0;
+	for (Integer move : firstMoves) {
+	    start.drehen((i++ % 2) == 0, move);
+	}
+	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
 
-	tiefensucheNoStore(4, start.fillCopy(new ZustandFarben()), new CheckResult<Farbe>() {
+	tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new CheckResult<Farbe>() {
 
 	    @Override
 	    public void checkResult(List<Integer> indexOfMoves, AbstractZustand<Farbe> current) {
 		if (current.equals(ziel)) {
 		    System.out.println("YEAY!!!");
 		    System.out.println("indexOfMoves: " + indexOfMoves);
+		    printDiff(basicMoves, indexOfMoves, current.vergleichen(ziel, 4));
 		}
-		List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
-		if (diff.size() < 4) {
-		    System.out.println();
-		    System.out.println("Check minimal (" + diff.size() + ") [" + indexOfMoves.size() + "]:");
-		    System.out.println("indexOfMoves: " + indexOfMoves);
-		    System.out.println("diff:");
-		    System.out.println(diff);
-		}
+//		List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
+//		if (diff.size() < 4) {
+//		    printDiff(basicMoves, indexOfMoves, diff);
+//		}
 	    }
 	}, basicMoves);
-
-	// tiefensucheNoStore(6, start, new CheckResult() {
-	//
-	// @Override
-	// public void checkResult(List zugfolge, AbstracZustand current,
-	// AbstracZustand start) {
-	// if (zugfolge.size() == 0)
-	// return;
-	// List<Aenderung> diff = current.vergleichen(start, 7);
-	// if (diff.size() < 6) {
-	// System.out.println();
-	// System.out.println("Check minimal (" + diff.size() + "):");
-	// System.out.println("zugfolge: " + zugfolge);
-	// System.out.println("diff:");
-	// System.out.println(diff);
-	// // todo: anschauliche ausgabe
-	// }
-	//
-	// }
-	//
-	// }, ZustandEindeutigeKugeln.class);
 
 	Date end = new Date();
 
@@ -101,12 +69,7 @@ public class Main {
 		int max_diff = 4;
 		List<Aenderung<Integer>> diff = current.vergleichen(start, max_diff + 1);
 		if (diff.size() < max_diff + 1) {
-		    // System.out.println();
-		    // System.out.println("Check minimal (" + diff.size() +
-		    // ") [" + indexOfMoves.size() + "]:");
-		    // System.out.println("indexOfMoves: " + indexOfMoves);
-		    // System.out.println("diff:");
-		    // System.out.println(diff);
+		    // printDiff(moves, indexOfMoves, diff);
 		    List<Integer> basicMove = new ArrayList<Integer>();
 		    for (Integer index : indexOfMoves) {
 			basicMove.add(moves.get(index).get(0));
@@ -236,6 +199,19 @@ public class Main {
 	    resultChecker.checkResult(indexOfMoves, current);
 	}
 
+    }
+
+    private static void printDiff(final List<List<Integer>> moves, List<Integer> indexOfMoves, List<?> diff) {
+	System.out.println();
+	System.out.println("Check minimal (diffsize=" + diff.size() + ") no of moves=" + indexOfMoves.size() + ":");
+	System.out.println("indexOfMoves: " + indexOfMoves);
+	System.out.println("All moves: ");
+	for (Integer i : indexOfMoves) {
+	    System.out.print(moves.get(i) + ", ");
+	}
+	System.out.println("<<");
+	System.out.println("diff:");
+	System.out.println(diff);
     }
 
 }

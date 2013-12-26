@@ -19,10 +19,10 @@ public abstract class AbstractZustand<T> {
 	}
     }
 
-    protected final T[] rechts;
-    protected final T[] links;
-    protected int start_rechts = 0;
-    protected int start_links = 0;
+    private final T[] rechts;
+    private final T[] links;
+    private int start_rechts = 0;
+    private int start_links = 0;
 
     public AbstractZustand(T[] rechts, T[] links) {
 	super();

@@ -1,0 +1,1742 @@
+
+Check minimal (4) [5]:
+indexOfMoves: [0, 4, 4, 14, 13]
+diff:
+[9->29, 14->19, 19->14, 29->9]
+
+Check minimal (4) [5]:
+indexOfMoves: [0, 4, 14, 14, 3]
+diff:
+[4->19, 14->29, 19->4, 29->14]
+
+Check minimal (4) [5]:
+indexOfMoves: [0, 14, 4, 4, 13]
+diff:
+[9->14, 14->9, 19->24, 24->19]
+
+Check minimal (4) [5]:
+indexOfMoves: [0, 14, 14, 4, 3]
+diff:
+[4->24, 14->19, 19->14, 24->4]
+
+Check minimal (4) [5]:
+indexOfMoves: [1, 4, 4, 14, 12]
+diff:
+[8->29, 13->18, 18->13, 29->8]
+
+Check minimal (4) [5]:
+indexOfMoves: [1, 4, 14, 14, 2]
+diff:
+[3->18, 13->29, 18->3, 29->13]
+
+Check minimal (4) [5]:
+indexOfMoves: [1, 14, 4, 4, 12]
+diff:
+[8->13, 13->8, 18->24, 24->18]
+
+Check minimal (4) [5]:
+indexOfMoves: [1, 14, 14, 4, 2]
+diff:
+[3->24, 13->18, 18->13, 24->3]
+
+Check minimal (4) [5]:
+indexOfMoves: [2, 4, 4, 14, 11]
+diff:
+[7->29, 12->17, 17->12, 29->7]
+
+Check minimal (4) [5]:
+indexOfMoves: [2, 4, 14, 14, 1]
+diff:
+[2->17, 12->29, 17->2, 29->12]
+
+Check minimal (4) [5]:
+indexOfMoves: [2, 14, 4, 4, 11]
+diff:
+[7->12, 12->7, 17->24, 24->17]
+
+Check minimal (4) [5]:
+indexOfMoves: [2, 14, 14, 4, 1]
+diff:
+[2->24, 12->17, 17->12, 24->2]
+
+Check minimal (4) [5]:
+indexOfMoves: [3, 4, 4, 14, 10]
+diff:
+[6->29, 11->16, 16->11, 29->6]
+
+Check minimal (4) [5]:
+indexOfMoves: [3, 4, 14, 14, 0]
+diff:
+[1->16, 11->29, 16->1, 29->11]
+
+Check minimal (4) [5]:
+indexOfMoves: [3, 14, 4, 4, 10]
+diff:
+[6->11, 11->6, 16->24, 24->16]
+
+Check minimal (4) [5]:
+indexOfMoves: [3, 14, 14, 4, 0]
+diff:
+[1->24, 11->16, 16->11, 24->1]
+
+Check minimal (4) [5]:
+indexOfMoves: [4, 4, 4, 14, 9]
+diff:
+[5->29, 10->15, 15->10, 29->5]
+
+Check minimal (4) [4]:
+indexOfMoves: [4, 4, 14, 14]
+diff:
+[0->15, 10->29, 15->0, 29->10]
+
+Check minimal (4) [5]:
+indexOfMoves: [4, 14, 4, 4, 9]
+diff:
+[5->10, 10->5, 15->24, 24->15]
+
+Check minimal (4) [4]:
+indexOfMoves: [4, 14, 14, 4]
+diff:
+[0->24, 10->15, 15->10, 24->0]
+
+Check minimal (4) [5]:
+indexOfMoves: [5, 4, 4, 14, 8]
+diff:
+[4->29, 9->14, 14->9, 29->4]
+
+Check minimal (4) [5]:
+indexOfMoves: [5, 4, 14, 14, 18]
+diff:
+[9->29, 14->19, 19->14, 29->9]
+
+Check minimal (4) [5]:
+indexOfMoves: [5, 14, 4, 4, 8]
+diff:
+[4->9, 9->4, 14->24, 24->14]
+
+Check minimal (4) [5]:
+indexOfMoves: [5, 14, 14, 4, 18]
+diff:
+[9->14, 14->9, 19->24, 24->19]
+
+Check minimal (4) [5]:
+indexOfMoves: [6, 4, 4, 14, 7]
+diff:
+[3->29, 8->13, 13->8, 29->3]
+
+Check minimal (4) [5]:
+indexOfMoves: [6, 4, 14, 14, 17]
+diff:
+[8->29, 13->18, 18->13, 29->8]
+
+Check minimal (4) [5]:
+indexOfMoves: [6, 14, 4, 4, 7]
+diff:
+[3->8, 8->3, 13->24, 24->13]
+
+Check minimal (4) [5]:
+indexOfMoves: [6, 14, 14, 4, 17]
+diff:
+[8->13, 13->8, 18->24, 24->18]
+
+Check minimal (4) [5]:
+indexOfMoves: [7, 4, 4, 14, 6]
+diff:
+[2->29, 7->12, 12->7, 29->2]
+
+Check minimal (4) [5]:
+indexOfMoves: [7, 4, 14, 14, 16]
+diff:
+[7->29, 12->17, 17->12, 29->7]
+
+Check minimal (4) [5]:
+indexOfMoves: [7, 14, 4, 4, 6]
+diff:
+[2->7, 7->2, 12->24, 24->12]
+
+Check minimal (4) [5]:
+indexOfMoves: [7, 14, 14, 4, 16]
+diff:
+[7->12, 12->7, 17->24, 24->17]
+
+Check minimal (4) [5]:
+indexOfMoves: [8, 4, 4, 14, 5]
+diff:
+[1->29, 6->11, 11->6, 29->1]
+
+Check minimal (4) [5]:
+indexOfMoves: [8, 4, 14, 14, 15]
+diff:
+[6->29, 11->16, 16->11, 29->6]
+
+Check minimal (4) [5]:
+indexOfMoves: [8, 14, 4, 4, 5]
+diff:
+[1->6, 6->1, 11->24, 24->11]
+
+Check minimal (4) [5]:
+indexOfMoves: [8, 14, 14, 4, 15]
+diff:
+[6->11, 11->6, 16->24, 24->16]
+
+Check minimal (4) [5]:
+indexOfMoves: [9, 4, 4, 14, 4]
+diff:
+[0->29, 5->10, 10->5, 29->0]
+
+Check minimal (4) [5]:
+indexOfMoves: [9, 4, 14, 14, 14]
+diff:
+[5->29, 10->15, 15->10, 29->5]
+
+Check minimal (4) [5]:
+indexOfMoves: [9, 14, 4, 4, 4]
+diff:
+[0->5, 5->0, 10->24, 24->10]
+
+Check minimal (4) [5]:
+indexOfMoves: [9, 14, 14, 4, 14]
+diff:
+[5->10, 10->5, 15->24, 24->15]
+
+Check minimal (4) [5]:
+indexOfMoves: [10, 4, 4, 14, 3]
+diff:
+[4->9, 9->4, 19->29, 29->19]
+
+Check minimal (4) [5]:
+indexOfMoves: [10, 4, 14, 14, 13]
+diff:
+[4->29, 9->14, 14->9, 29->4]
+
+Check minimal (4) [5]:
+indexOfMoves: [10, 14, 4, 4, 3]
+diff:
+[4->19, 9->24, 19->4, 24->9]
+
+Check minimal (4) [5]:
+indexOfMoves: [10, 14, 14, 4, 13]
+diff:
+[4->9, 9->4, 14->24, 24->14]
+
+Check minimal (4) [5]:
+indexOfMoves: [11, 4, 4, 14, 2]
+diff:
+[3->8, 8->3, 18->29, 29->18]
+
+Check minimal (4) [5]:
+indexOfMoves: [11, 4, 14, 14, 12]
+diff:
+[3->29, 8->13, 13->8, 29->3]
+
+Check minimal (4) [5]:
+indexOfMoves: [11, 14, 4, 4, 2]
+diff:
+[3->18, 8->24, 18->3, 24->8]
+
+Check minimal (4) [5]:
+indexOfMoves: [11, 14, 14, 4, 12]
+diff:
+[3->8, 8->3, 13->24, 24->13]
+
+Check minimal (4) [5]:
+indexOfMoves: [12, 4, 4, 14, 1]
+diff:
+[2->7, 7->2, 17->29, 29->17]
+
+Check minimal (4) [5]:
+indexOfMoves: [12, 4, 14, 14, 11]
+diff:
+[2->29, 7->12, 12->7, 29->2]
+
+Check minimal (4) [5]:
+indexOfMoves: [12, 14, 4, 4, 1]
+diff:
+[2->17, 7->24, 17->2, 24->7]
+
+Check minimal (4) [5]:
+indexOfMoves: [12, 14, 14, 4, 11]
+diff:
+[2->7, 7->2, 12->24, 24->12]
+
+Check minimal (4) [5]:
+indexOfMoves: [13, 4, 4, 14, 0]
+diff:
+[1->6, 6->1, 16->29, 29->16]
+
+Check minimal (4) [5]:
+indexOfMoves: [13, 4, 14, 14, 10]
+diff:
+[1->29, 6->11, 11->6, 29->1]
+
+Check minimal (4) [5]:
+indexOfMoves: [13, 14, 4, 4, 0]
+diff:
+[1->16, 6->24, 16->1, 24->6]
+
+Check minimal (4) [5]:
+indexOfMoves: [13, 14, 14, 4, 10]
+diff:
+[1->6, 6->1, 11->24, 24->11]
+
+Check minimal (4) [4]:
+indexOfMoves: [14, 4, 4, 14]
+diff:
+[0->5, 5->0, 15->29, 29->15]
+
+Check minimal (4) [5]:
+indexOfMoves: [14, 4, 14, 14, 9]
+diff:
+[0->29, 5->10, 10->5, 29->0]
+
+Check minimal (4) [4]:
+indexOfMoves: [14, 14, 4, 4]
+diff:
+[0->15, 5->24, 15->0, 24->5]
+
+Check minimal (4) [5]:
+indexOfMoves: [14, 14, 14, 4, 9]
+diff:
+[0->5, 5->0, 10->24, 24->10]
+
+Check minimal (4) [5]:
+indexOfMoves: [15, 4, 4, 14, 18]
+diff:
+[4->19, 14->29, 19->4, 29->14]
+
+Check minimal (4) [5]:
+indexOfMoves: [15, 4, 14, 14, 8]
+diff:
+[4->9, 9->4, 19->29, 29->19]
+
+Check minimal (4) [5]:
+indexOfMoves: [15, 14, 4, 4, 18]
+diff:
+[4->24, 14->19, 19->14, 24->4]
+
+Check minimal (4) [5]:
+indexOfMoves: [15, 14, 14, 4, 8]
+diff:
+[4->19, 9->24, 19->4, 24->9]
+
+Check minimal (4) [5]:
+indexOfMoves: [16, 4, 4, 14, 17]
+diff:
+[3->18, 13->29, 18->3, 29->13]
+
+Check minimal (4) [5]:
+indexOfMoves: [16, 4, 14, 14, 7]
+diff:
+[3->8, 8->3, 18->29, 29->18]
+
+Check minimal (4) [5]:
+indexOfMoves: [16, 14, 4, 4, 17]
+diff:
+[3->24, 13->18, 18->13, 24->3]
+
+Check minimal (4) [5]:
+indexOfMoves: [16, 14, 14, 4, 7]
+diff:
+[3->18, 8->24, 18->3, 24->8]
+
+Check minimal (4) [5]:
+indexOfMoves: [17, 4, 4, 14, 16]
+diff:
+[2->17, 12->29, 17->2, 29->12]
+
+Check minimal (4) [5]:
+indexOfMoves: [17, 4, 14, 14, 6]
+diff:
+[2->7, 7->2, 17->29, 29->17]
+
+Check minimal (4) [5]:
+indexOfMoves: [17, 14, 4, 4, 16]
+diff:
+[2->24, 12->17, 17->12, 24->2]
+
+Check minimal (4) [5]:
+indexOfMoves: [17, 14, 14, 4, 6]
+diff:
+[2->17, 7->24, 17->2, 24->7]
+
+Check minimal (4) [5]:
+indexOfMoves: [18, 4, 4, 14, 15]
+diff:
+[1->16, 11->29, 16->1, 29->11]
+
+Check minimal (4) [5]:
+indexOfMoves: [18, 4, 14, 14, 5]
+diff:
+[1->6, 6->1, 16->29, 29->16]
+
+Check minimal (4) [5]:
+indexOfMoves: [18, 14, 4, 4, 15]
+diff:
+[1->24, 11->16, 16->11, 24->1]
+
+Check minimal (4) [5]:
+indexOfMoves: [18, 14, 14, 4, 5]
+diff:
+[1->16, 6->24, 16->1, 24->6]
+anzahl basic moves: 76
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [2, 58, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [2, 58, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [14, 58, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [14, 58, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [23, 58, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [23, 58, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [35, 58, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [35, 58, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 38, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 12, 59, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 38, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [38, 33, 59, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (2) [5]:
+indexOfMoves: [40, 17, 12, 17, 40]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [40, 17, 12, 17, 61]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [40, 17, 32, 17, 40]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [40, 17, 32, 17, 61]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [40, 17, 33, 17, 40]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [40, 17, 33, 17, 61]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [40, 17, 53, 17, 40]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [40, 17, 53, 17, 61]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [52, 17, 12, 17, 52]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [52, 17, 12, 17, 73]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [52, 17, 32, 17, 52]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [52, 17, 32, 17, 73]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [52, 17, 33, 17, 52]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [52, 17, 33, 17, 73]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [52, 17, 53, 17, 52]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [52, 17, 53, 17, 73]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 2, 15, 58, 14]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 2, 15, 58, 35]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 2, 74, 58, 14]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 2, 74, 58, 35]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 14, 15, 58, 2]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 14, 15, 58, 23]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 14, 74, 58, 2]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 14, 74, 58, 23]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 23, 15, 58, 14]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 23, 15, 58, 35]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 23, 74, 58, 14]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 23, 74, 58, 35]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 35, 15, 58, 2]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 35, 15, 58, 23]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 35, 74, 58, 2]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 35, 74, 58, 23]
+diff:
+[S->B, G->S, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 42, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 42, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 42, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 42, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 42, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 42, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 42, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 42, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 46, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 46, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 50, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 50, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 54, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 54, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 54, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 54, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 54, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 54, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 54, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 54, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 63, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 63, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 63, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 63, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 63, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 63, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 63, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 63, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 67, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 67, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 15, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 15, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 54, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 54, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 74, 58, 14]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 71, 74, 58, 35]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 75, 58, 14]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 71, 75, 58, 35]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 75, 15, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 75, 15, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 75, 54, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 75, 54, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 75, 74, 58, 2]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [58, 75, 74, 58, 23]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 75, 75, 58, 2]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [58, 75, 75, 58, 23]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 38, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 12, 59, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 38, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 15, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 15, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 15, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 15, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 74, 2]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 74, 14]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 74, 23]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (3) [5]:
+indexOfMoves: [59, 33, 59, 74, 35]
+diff:
+[S->G, G->B, B->S]
+
+Check minimal (2) [5]:
+indexOfMoves: [61, 17, 12, 17, 40]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [61, 17, 12, 17, 61]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [61, 17, 32, 17, 40]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [61, 17, 32, 17, 61]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [61, 17, 33, 17, 40]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [61, 17, 33, 17, 61]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [61, 17, 53, 17, 40]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [61, 17, 53, 17, 61]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [73, 17, 12, 17, 52]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [73, 17, 12, 17, 73]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [73, 17, 32, 17, 52]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [73, 17, 32, 17, 73]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [73, 17, 33, 17, 52]
+diff:
+[G->B, B->G]
+
+Check minimal (2) [5]:
+indexOfMoves: [73, 17, 33, 17, 73]
+diff:
+[G->B, B->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [73, 17, 53, 17, 52]
+diff:
+[G->B, B->R, R->G]
+
+Check minimal (3) [5]:
+indexOfMoves: [73, 17, 53, 17, 73]
+diff:
+[G->B, B->R, R->G]
+TIME: 1304 sek
