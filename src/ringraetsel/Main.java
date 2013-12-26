@@ -28,22 +28,29 @@ public class Main {
 	    start.drehen((i++ % 2) == 0, move);
 	}
 	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
+	
+	Integer[] secondMoves = new Integer[]{11, 5, 5, 15, 4, 5, 5, 15, 15, 9, 5, 15, 15, 16, 5, 5, 15, 15, 16, 5, 15, 15, 9};
+	i++;
+	for (Integer move : secondMoves) {
+	    start.drehen((i++ % 2) == 0, move);
+	}
+	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
 
-	tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new CheckResult<Farbe>() {
-
-	    @Override
-	    public void checkResult(List<Integer> indexOfMoves, AbstractZustand<Farbe> current) {
-		if (current.equals(ziel)) {
-		    System.out.println("YEAY!!!");
-		    System.out.println("indexOfMoves: " + indexOfMoves);
-		    printDiff(basicMoves, indexOfMoves, current.vergleichen(ziel, 4));
-		}
-//		List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
-//		if (diff.size() < 4) {
-//		    printDiff(basicMoves, indexOfMoves, diff);
+//	tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new CheckResult<Farbe>() {
+//
+//	    @Override
+//	    public void checkResult(List<Integer> indexOfMoves, AbstractZustand<Farbe> current) {
+//		if (current.equals(ziel)) {
+//		    System.out.println("YEAY!!!");
+//		    System.out.println("indexOfMoves: " + indexOfMoves);
+//		    printDiff(basicMoves, indexOfMoves, current.vergleichen(ziel, 4));
 //		}
-	    }
-	}, basicMoves);
+////		List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
+////		if (diff.size() < 4) {
+////		    printDiff(basicMoves, indexOfMoves, diff);
+////		}
+//	    }
+//	}, basicMoves);
 
 	Date end = new Date();
 
@@ -135,14 +142,6 @@ public class Main {
 	return true;
     }
 
-    public static <T> void tiefensucheNoStore(int tiefe, AbstractZustand<T> current, CheckResult<T> resultChecker) {
-	List<List<Integer>> moves = new ArrayList<List<Integer>>();
-	for (int i = 1; i < 20; i++) {
-	    moves.add(Collections.singletonList(new Integer(i)));
-	}
-	tiefensucheNoStore(tiefe, current, resultChecker, moves);
-    }
-
     /**
      * @param tiefe
      * @param start
@@ -201,6 +200,7 @@ public class Main {
 
     }
 
+    @SuppressWarnings("unused")
     private static void printDiff(final List<List<Integer>> moves, List<Integer> indexOfMoves, List<?> diff) {
 	System.out.println();
 	System.out.println("Check minimal (diffsize=" + diff.size() + ") no of moves=" + indexOfMoves.size() + ":");
