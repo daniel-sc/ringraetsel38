@@ -8,36 +8,56 @@ import ringraetsel.AbstracZustand.Aenderung;
 
 public class Main {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-	// // Zustand zustand = new Zustand();
-	// ZustandEindeutigeKugeln zustand = new ZustandEindeutigeKugeln();
-	// ZustandEindeutigeKugeln bak = zustand.getCopy();
-	//
-	// System.out.println(zustand);
-	//
-	// System.out.println("drehen 1 rechts");
-	// zustand.drehen(true, 1);
-	//
-	// System.out.println(zustand);
-	//
-	// System.out.println("änderung:");
-	// System.out.println(zustand.vergleichen(bak));
-	// johannes();
-	// daniel();
-	Date start = new Date();
+
+	Date startZeit = new Date();
 	// tiefensuche(6, new ZustandEindeutigeKugeln());
-	tiefensucheNoStore(6, new ZustandEindeutigeKugeln(), new CheckResult() {
-	    
+
+	ZustandFarben start = new ZustandFarben();
+	start.problem();
+	final ZustandFarben ziel = new ZustandFarben();
+	ziel.reset();
+
+	tiefensucheNoStore(7, start, new CheckResult() {
+
 	    @Override
-	    public void checkMinimalDrehung(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
-		    ZustandEindeutigeKugeln start) {
-		checkMinimalDrehungOld(zugfolge, zustand, start);
-		
+	    public void checkResult(List zugfolge, AbstracZustand current, AbstracZustand start) {
+		if (ziel.equals(current)) {
+		    System.out.println("YEAY!!");
+		    System.out.println(zugfolge);
+		}
+
 	    }
-	});
+
+	}, ZustandFarben.class);
+	
+	
+	tiefensucheNoStore(6, start, new CheckResult() {
+
+	    @Override
+	    public void checkResult(List zugfolge, AbstracZustand current, AbstracZustand start) {
+		if (zugfolge.size() == 0)
+		    return;
+		List<Aenderung> diff = current.vergleichen(start, 7);
+		if (diff.size() < 6) {
+		    System.out.println();
+		    System.out.println("Check minimal (" + diff.size() + "):");
+		    System.out.println("zugfolge: " + zugfolge);
+		    System.out.println("diff:");
+		    System.out.println(diff);
+		    // todo: anschauliche ausgabe
+		}
+
+	    }
+
+	}, ZustandEindeutigeKugeln.class);
+	
+	
+	
 	Date end = new Date();
 
-	System.out.println("TIME: " + (end.getTime() - start.getTime()) / 1000 + " sek");
+	System.out.println("TIME: " + (end.getTime() - startZeit.getTime()) / 1000 + " sek");
     }
 
     /**
@@ -92,7 +112,7 @@ public class Main {
 
 	while (!isDone(zugfolge, tiefe)) {
 
-	    checkMinimalDrehungOld(zugfolge, zustanede, start);
+	    checkMinimalDrehung(zugfolge, zustanede, start);
 
 	    int size = zugfolge.size();
 	    if (size < tiefe) {
@@ -140,15 +160,15 @@ public class Main {
      * @param zustanede
      * @param start
      */
-    private static void checkMinimalDrehungOld(List<Integer> zugfolge, List<ZustandEindeutigeKugeln> zustanede,
+    private static void checkMinimalDrehung(List<Integer> zugfolge, List<ZustandEindeutigeKugeln> zustanede,
 	    ZustandEindeutigeKugeln start) {
 	if (zugfolge.size() == 0)
 	    return;
 	else
-	    checkMinimalDrehungOld(zugfolge, zustanede.get(zustanede.size() - 1), start);
+	    checkMinimalDrehung(zugfolge, zustanede.get(zustanede.size() - 1), start);
     }
 
-    private static void checkMinimalDrehungOld(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
+    private static void checkMinimalDrehung(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
 	    ZustandEindeutigeKugeln start) {
 	if (zugfolge.size() == 0)
 	    return;
@@ -172,16 +192,20 @@ public class Main {
 	return true;
     }
 
-    public static void tiefensucheNoStore(int tiefe, ZustandEindeutigeKugeln start, CheckResult resultChecker) {
+    public static <T> void tiefensucheNoStore(int tiefe, AbstracZustand<T> start, CheckResult<T> resultChecker,
+	    Class<? extends AbstracZustand<?>> type) {
 
 	List<Integer> zugfolge = new ArrayList<Integer>();
 
-	ZustandEindeutigeKugeln current = new ZustandEindeutigeKugeln();
-	start.fillCopy(current);
+	AbstracZustand<?> current;
+	if (type.equals(ZustandFarben.class))
+	    current = new ZustandFarben();
+	else
+	    current = new ZustandEindeutigeKugeln();
+
+	start.fillCopy((AbstracZustand<T>) current);
 
 	while (!isDone(zugfolge, tiefe)) {
-
-	    resultChecker.checkMinimalDrehung(zugfolge, current, start);
 
 	    int size = zugfolge.size();
 	    if (size < tiefe) {
@@ -201,6 +225,8 @@ public class Main {
 		current.drehen(size % 2 == 0, dist + 1);
 		zugfolge.add(dist + 1);
 	    }
+
+	    resultChecker.checkResult(zugfolge, (AbstracZustand<T>) current, start);
 	}
 
     }

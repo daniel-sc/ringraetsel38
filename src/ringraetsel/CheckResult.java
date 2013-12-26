@@ -2,7 +2,7 @@ package ringraetsel;
 
 import java.util.List;
 
-public interface CheckResult {
-    public void checkMinimalDrehung(List<Integer> zugfolge, ZustandEindeutigeKugeln zustand,
-	    ZustandEindeutigeKugeln start);
+public interface CheckResult<T> {
+    public void checkResult(List<Integer> zugfolge, AbstracZustand<T> current,
+	    AbstracZustand<T> start);
 }
