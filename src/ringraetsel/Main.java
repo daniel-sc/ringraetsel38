@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import ringraetsel.ZustandEindeutigeKugeln.Aenderung;
+import ringraetsel.AbstracZustand.Aenderung;
 
 public class Main {
 
@@ -47,7 +47,8 @@ public class Main {
 
     public static void johannes() {
 	ZustandEindeutigeKugeln zustand = new ZustandEindeutigeKugeln();
-	ZustandEindeutigeKugeln bak = zustand.getCopy();
+	ZustandEindeutigeKugeln bak = new ZustandEindeutigeKugeln();
+	zustand.fillCopy(bak);
 
 	johannes_min1(zustand, -5, 5);
 
@@ -59,7 +60,8 @@ public class Main {
 	for (int distLinks = 1; distLinks < 20; distLinks++) {
 	    for (int distRechts = 1; distRechts < 20; distRechts++) {
 		ZustandEindeutigeKugeln zustand = new ZustandEindeutigeKugeln();
-		ZustandEindeutigeKugeln bak = zustand.getCopy();
+		ZustandEindeutigeKugeln bak = new ZustandEindeutigeKugeln();
+		zustand.fillCopy(bak);
 		johannes_min1(zustand, distRechts, distLinks);
 		List<Aenderung> diff = zustand.vergleichen(bak, 10);
 		if (diff.size() <= 6 || diff.size() % 2 == 1) {
@@ -81,7 +83,13 @@ public class Main {
 
 	    int size = zugfolge.size();
 	    if (size < tiefe) {
-		ZustandEindeutigeKugeln current = size != 0 ? zustanede.get(size - 1).getCopy() : start.getCopy();
+		ZustandEindeutigeKugeln current = new ZustandEindeutigeKugeln();
+		if (size != 0) {
+		    zustanede.get(size - 1).fillCopy(current);
+		} else {
+		    start.fillCopy(current);
+
+		}
 		current.drehen(size % 2 == 0, 1);
 		zugfolge.add(1);
 		zustanede.add(current);
@@ -96,7 +104,13 @@ public class Main {
 		zustanede.remove(size - 1);
 		size--;
 
-		ZustandEindeutigeKugeln current = size != 0 ? zustanede.get(size - 1).getCopy() : start.getCopy();
+		ZustandEindeutigeKugeln current = new ZustandEindeutigeKugeln();
+		if (size != 0) {
+		    zustanede.get(size - 1).fillCopy(current);
+		} else {
+		    start.fillCopy(current);
+
+		}
 		current.drehen(size % 2 == 0, dist);
 		zugfolge.add(dist);
 		zustanede.add(current);
@@ -154,7 +168,8 @@ public class Main {
 
 	List<Integer> zugfolge = new ArrayList<Integer>();
 
-	ZustandEindeutigeKugeln current = start.getCopy();
+	ZustandEindeutigeKugeln current = new ZustandEindeutigeKugeln();
+	start.fillCopy(current);
 
 	while (!isDone(zugfolge, tiefe)) {
 
