@@ -21,7 +21,7 @@ public abstract class AbstracZustand<T> {
 
     protected List<T> rechts = new ArrayList<>(20);
     protected List<T> links = new ArrayList<>(20);
-
+    
     public AbstracZustand() {
 	super();
     }

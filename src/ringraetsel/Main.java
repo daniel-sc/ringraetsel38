@@ -14,47 +14,74 @@ public class Main {
 	Date startZeit = new Date();
 	// tiefensuche(6, new ZustandEindeutigeKugeln());
 
-	ZustandFarben start = new ZustandFarben();
-	start.problem();
+//	ZustandFarben start = new ZustandFarben();
+//	start.problem();
 	final ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 
-	tiefensucheNoStore(7, start, new CheckResult() {
+	// tiefensucheNoStore(6, start, new CheckResult() {
+	//
+	// @Override
+	// public void checkResult(List zugfolge, AbstracZustand current,
+	// AbstracZustand start) {
+	// if (ziel.equals(current)) {
+	// System.out.println("YEAY!!");
+	// System.out.println(zugfolge);
+	// }
+	//
+	// }
+	//
+	// }, ZustandFarben.class);
 
-	    @Override
-	    public void checkResult(List zugfolge, AbstracZustand current, AbstracZustand start) {
-		if (ziel.equals(current)) {
-		    System.out.println("YEAY!!");
-		    System.out.println(zugfolge);
-		}
-
-	    }
-
-	}, ZustandFarben.class);
+	final List<List<Integer>> basicMoves = new ArrayList<List<Integer>>();
 	
-	
-	tiefensucheNoStore(6, start, new CheckResult() {
+	ZustandEindeutigeKugeln start = new ZustandEindeutigeKugeln();
+
+	tiefensucheNoStore(5, start, new CheckResult() {
 
 	    @Override
 	    public void checkResult(List zugfolge, AbstracZustand current, AbstracZustand start) {
 		if (zugfolge.size() == 0)
 		    return;
-		List<Aenderung> diff = current.vergleichen(start, 7);
-		if (diff.size() < 6) {
+		int max_diff = 7;
+		List<Aenderung> diff = current.vergleichen(start, max_diff + 1);
+		if (diff.size() < max_diff + 1) {
 		    System.out.println();
 		    System.out.println("Check minimal (" + diff.size() + "):");
 		    System.out.println("zugfolge: " + zugfolge);
 		    System.out.println("diff:");
 		    System.out.println(diff);
 		    // todo: anschauliche ausgabe
+		    basicMoves.add((List<Integer>) zugfolge.get(zugfolge.size()-1));
 		}
 
 	    }
 
 	}, ZustandEindeutigeKugeln.class);
+
+	System.out.println("anzahl basic moves: "+basicMoves.size());
 	
-	
-	
+	// tiefensucheNoStore(6, start, new CheckResult() {
+	//
+	// @Override
+	// public void checkResult(List zugfolge, AbstracZustand current,
+	// AbstracZustand start) {
+	// if (zugfolge.size() == 0)
+	// return;
+	// List<Aenderung> diff = current.vergleichen(start, 7);
+	// if (diff.size() < 6) {
+	// System.out.println();
+	// System.out.println("Check minimal (" + diff.size() + "):");
+	// System.out.println("zugfolge: " + zugfolge);
+	// System.out.println("diff:");
+	// System.out.println(diff);
+	// // todo: anschauliche ausgabe
+	// }
+	//
+	// }
+	//
+	// }, ZustandEindeutigeKugeln.class);
+
 	Date end = new Date();
 
 	System.out.println("TIME: " + (end.getTime() - startZeit.getTime()) / 1000 + " sek");
@@ -209,7 +236,7 @@ public class Main {
 
 	    int size = zugfolge.size();
 	    if (size < tiefe) {
-		current.drehen(size % 2 == 0, 1);
+		current.drehen(size % 2 == 0, 1); // rechts faengts an
 		zugfolge.add(1);
 	    } else {
 		while (zugfolge.get(size - 1).equals(new Integer(19))) {
@@ -218,12 +245,10 @@ public class Main {
 								    // Check?
 		    size--;
 		}
-		int dist = zugfolge.remove(size - 1);
-		current.drehen((size + 1) % 2 == 0, 20 - dist); // TODO Check?
-		size--;
 
-		current.drehen(size % 2 == 0, dist + 1);
-		zugfolge.add(dist + 1);
+		current.drehen(size % 2 == 0, 1);
+		int old = zugfolge.get(size - 1);
+		zugfolge.set(size - 1, old + 1);
 	    }
 
 	    resultChecker.checkResult(zugfolge, (AbstracZustand<T>) current, start);
