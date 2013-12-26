@@ -5,7 +5,7 @@ import static ringraetsel.Farbe.G;
 import static ringraetsel.Farbe.R;
 import static ringraetsel.Farbe.S;
 
-public class ZustandFarben extends AbstracZustand<Farbe> {
+public class ZustandFarben extends AbstractZustand<Farbe> {
 
     /*
      * 1. Schnittpunkt: rechts[0]=links[0]

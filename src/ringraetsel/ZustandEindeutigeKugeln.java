@@ -1,8 +1,8 @@
 package ringraetsel;
 
-import ringraetsel.AbstracZustand;
+import ringraetsel.AbstractZustand;
 
-public class ZustandEindeutigeKugeln extends AbstracZustand<Integer> {
+public class ZustandEindeutigeKugeln extends AbstractZustand<Integer> {
 
     /*
      * 1. Schnittpunkt: rechts[0]=links[0]
