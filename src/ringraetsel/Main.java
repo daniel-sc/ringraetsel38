@@ -138,6 +138,7 @@ public class Main {
 	    System.out.println("zugfolge: " + zugfolge);
 	    System.out.println("diff:");
 	    System.out.println(diff);
+	    // todo: anschauliche ausgabe
 	}
     }
 
@@ -152,6 +153,7 @@ public class Main {
 	    System.out.println("zugfolge: " + zugfolge);
 	    System.out.println("diff:");
 	    System.out.println(diff);
+	    // todo: anschauliche ausgabe
 	}
     }
 
