@@ -1,6 +1,5 @@
 package ringraetsel;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,22 +19,42 @@ public abstract class AbstractZustand<T> {
 	}
     }
 
-    protected List<T> rechts = new ArrayList<>(20);
-    protected List<T> links = new ArrayList<>(20);
+    protected final T[] rechts;
+    protected final T[] links;
+    protected int start_rechts = 0;
+    protected int start_links = 0;
 
-    public AbstractZustand() {
+    public AbstractZustand(T[] rechts, T[] links) {
 	super();
+	this.rechts = rechts;
+	this.links = links;
+    }
+
+    public T getRechts(int i) {
+	return rechts[(start_rechts + i) % 20];
+    }
+
+    public T getLinks(int i) {
+	return links[(start_links + i) % 20];
+    }
+
+    public void setRechts(int i, T t) {
+	rechts[(start_rechts + i) % 20] = t;
+    }
+
+    public void setLinks(int i, T t) {
+	links[(start_links + i) % 20] = t;
     }
 
     @Override
     public boolean equals(Object obj) {
 	if (!(obj instanceof AbstractZustand<?>))
 	    return false;
-	AbstractZustand z = (AbstractZustand) obj;
+	AbstractZustand<?> z = (AbstractZustand<?>) obj;
 	for (int i = 0; i < 20; i++) {
-	    if (!rechts.get(i).equals(z.rechts.get(i)))
+	    if (!rechts[i].equals(z.rechts[i]))
 		return false;
-	    if (!links.get(i).equals(z.links.get(i)))
+	    if (!links[i].equals(z.links[i]))
 		return false;
 	}
 	return true;
@@ -48,25 +67,17 @@ public abstract class AbstractZustand<T> {
      * @param weite
      */
     public void drehen(boolean rechte_seite, int weite) {
-	List<T> aktiv;
-	List<T> passiv;
-	weite = (weite + 20) % 20;
+	weite = weite + 20;
 	if (rechte_seite) {
-	    aktiv = rechts;
-	    passiv = links;
+	    start_rechts = (start_rechts - weite + 20 + 20) % 20;
+	    setLinks(0, getRechts(0));
+	    setLinks(15, getRechts(15));
 	} else {
-	    aktiv = links;
-	    passiv = rechts;
+	    start_links = (start_links - weite + 20 + 20) % 20;
+	    setRechts(0, getLinks(0));
+	    setRechts(15, getLinks(15));
 	}
 
-	List<T> backup = new ArrayList<>(aktiv);
-
-	for (int i = 0; i < 20; i++) {
-	    aktiv.set((i + weite) % 20, backup.get(i));
-	}
-
-	passiv.set(0, aktiv.get(0));
-	passiv.set(15, aktiv.get(15));
     }
 
     /**
@@ -140,29 +151,28 @@ public abstract class AbstractZustand<T> {
     public List<Aenderung<T>> vergleichen(AbstractZustand<T> z, int max) {
 	List<Aenderung<T>> result = new ArrayList<>();
 
-	List<T> me = getLinear();
-	List<T> other = z.getLinear();
-
-	for (int i = 0; i < me.size(); i++) {
-	    if (!me.get(i).equals(other.get(i))) {
+	for (int i = 0; i < 20; i++) {
+	    if (!getRechts(i).equals(z.getRechts(i))) {
 		Aenderung<T> a = new Aenderung<T>();
-		a.ist = me.get(i);
-		a.war = other.get(i);
-		a.index_linear = i;
+		a.ist = getRechts(i);
+		a.war = z.getRechts(i);
+		a.index_rechts = i;
 		result.add(a);
 		if (result.size() == max)
 		    return result;
 	    }
 	}
 
-	return result;
-    }
-
-    public List<T> getLinear() {
-	List<T> result = new ArrayList<T>(rechts);
 	for (int i = 1; i < 20; i++) {
-	    if (i != 15)
-		result.add(links.get(i));
+	    if (i != 15 && !getLinks(i).equals(z.getLinks(i))) {
+		Aenderung<T> a = new Aenderung<T>();
+		a.ist = getLinks(i);
+		a.war = z.getLinks(i);
+		a.index_links = i;
+		result.add(a);
+		if (result.size() == max)
+		    return result;
+	    }
 	}
 
 	return result;
@@ -188,11 +198,11 @@ public abstract class AbstractZustand<T> {
     public AbstractZustand<T> fillCopy(AbstractZustand<T> result) {
 	for (int i = 0; i < 20; i++) {
 	    // result.rechts = new ArrayList<Integer>(rechts);
-	    // result.rechts.set(i, new Integer(rechts.get(i)));
-	    result.rechts.set(i, rechts.get(i));
+	    // result.rechts.set(i, new Integer(rechts.[i]));
+	    result.rechts[i] = rechts[i];
 	    // result.links = new ArrayList<Integer>(links);
-	    // result.links.set(i, new Integer(links.get(i)));
-	    result.links.set(i, links.get(i));
+	    // result.links.set(i, new Integer(links.[i]));
+	    result.links[i] = links[i];
 	}
 	return result;
     }

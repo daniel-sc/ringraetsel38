@@ -15,23 +15,20 @@ public class ZustandEindeutigeKugeln extends AbstractZustand<Integer> {
     public void reset() {
 	Integer counter = 0;
 	for (int i = 0; i < 20; i++) {
-	    rechts.set(i, new Integer(counter++));
+	    rechts[i] = new Integer(counter++);
 	}
 	for (int i = 1; i < 20; i++) {
 	    if (i != 15) {
-		links.set(i, new Integer(counter++));
+		links[i] = new Integer(counter++);
 	    }
 	}
-	links.set(15, new Integer(rechts.get(15)));
-	links.set(0, new Integer(rechts.get(15)));
+	links[15] = new Integer(rechts[15]);
+	links[0] = new Integer(rechts[15]);
 
     }
 
     public ZustandEindeutigeKugeln() {
-	for (int i = 0; i < 20; i++) {
-	    rechts.add(0);
-	    links.add(0);
-	}
+	super(new Integer[20], new Integer[20]);
 
 	reset();
     }
