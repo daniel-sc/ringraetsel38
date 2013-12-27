@@ -19,8 +19,8 @@ public class Main {
 	// solutionToOurProblem();
 	// List<List<Integer>> basicMoves = getBasicMoves();
 	// System.out.println(basicMoves.size());
-	ZustandFarben start = new ZustandFarben();
-	start.problem();
+	ZustandFarben start = userInput();
+
 	ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 
@@ -89,7 +89,7 @@ public class Main {
 	// tiefe:5 -> 0 sek, 74 elemente
 	// tiefe:6 -> 9 sek, 84? elemente
 	// tiefe:7 -> 199 sek, 1558 elemente
-	tiefensucheNoStore(5, start.getCopy(), new CheckResult<Integer>() {
+	Tiefensuche.tiefensucheNoStore(5, start.getCopy(), new CheckResult<Integer>() {
 
 	    @Override
 	    public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<Integer> current) {
@@ -141,7 +141,7 @@ public class Main {
 	}
     }
 
-    private static boolean isDone(List<Integer> zugIndizes, int tiefe, int anzZuege) {
+    static boolean isDone(List<Integer> zugIndizes, int tiefe, int anzZuege) {
 	// System.out.println("tiefe=" + tiefe + ", anzZuege=" + anzZuege +
 	// ", zugIndizes=" + zugIndizes);
 	if (zugIndizes.size() != tiefe)
@@ -173,7 +173,7 @@ public class Main {
 	    context.indexOfMovesBest = null;
 	    System.out.println("Differenz: " + context.currentDiff + ", Tiefe: " + tiefe + ", Züge bisher: "
 		    + result.size());
-	    tiefensucheNoStore(tiefe, start.getCopy(), new CheckResult<T>() {
+	    Tiefensuche.tiefensucheNoStore(tiefe, start.getCopy(), new CheckResult<T>() {
 
 		@Override
 		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
@@ -189,9 +189,11 @@ public class Main {
 	    }, basicMoves);
 
 	    if (context.indexOfMovesBest != null) {
+		List<Integer> currentMoves = new ArrayList<Integer>();
 		for (Integer i : context.indexOfMovesBest) {
 		    start.drehen(result.size() % 2 == 0, basicMoves.get(i));
 		    result.addAll(basicMoves.get(i));
+		    currentMoves.addAll(basicMoves.get(i));
 		}
 
 		// da die tiefensuche immer mit rechts startet muss hier ggf.
@@ -200,6 +202,7 @@ public class Main {
 		    result.add(0);
 		}
 		System.out.println("CHECK-Diff: " + start.vergleichen(ziel, 38).size());
+		System.out.println("NEXT MOVES (start rechts): " + currentMoves);
 		tiefe = 1;
 		context.indexOfMovesBest = null;
 	    } else {
@@ -215,68 +218,6 @@ public class Main {
     private static class SolveGreedyContext {
 	int currentDiff;
 	List<Integer> indexOfMovesBest;
-    }
-
-    /**
-     * die erste drehung ist immer nach rechts
-     * 
-     * @param tiefe
-     * @param current
-     *            will be used and modified!
-     * @param resultChecker
-     * @param moves
-     */
-    public static <T> void tiefensucheNoStore(int tiefe, AbstractZustand<T> current, CheckResult<T> resultChecker,
-	    List<List<Integer>> moves) {
-
-	List<List<Integer>> zugfolgen = new ArrayList<List<Integer>>();
-	List<Integer> indexOfMoves = new ArrayList<>();
-
-	int noOfMoves = 0;
-
-	while (!isDone(indexOfMoves, tiefe, moves.size())) {
-
-	    int size = zugfolgen.size();
-	    if (size < tiefe) {
-		current.drehen(noOfMoves % 2 == 0, moves.get(0)); // rechts
-								  // faengts an
-		zugfolgen.add(moves.get(0));
-		noOfMoves += moves.get(0).size();
-		indexOfMoves.add(0);
-	    } else {
-		while (size > 0 && indexOfMoves.get(size - 1).equals(moves.size() - 1)) {
-		    List<Integer> oldmove = zugfolgen.remove(size - 1);
-		    indexOfMoves.remove(size - 1);
-		    current.zurueckDrehen((noOfMoves - oldmove.size()) % 2 == 0, oldmove);
-
-		    noOfMoves -= oldmove.size();
-		    size--;
-		}
-
-		// zurueckdrehen
-		List<Integer> oldmove = zugfolgen.remove(size - 1);
-		int oldindex = indexOfMoves.remove(size - 1);
-		current.zurueckDrehen((noOfMoves - oldmove.size()) % 2 == 0, oldmove);
-
-		noOfMoves -= oldmove.size();
-		size--;
-
-		// naechsten move drehen
-		List<Integer> newmove = moves.get(oldindex + 1);
-
-		current.drehen(noOfMoves % 2 == 0, newmove);
-		indexOfMoves.add(oldindex + 1);
-		zugfolgen.add(newmove);
-		noOfMoves += newmove.size();
-		size++;
-	    }
-
-	    boolean stop = resultChecker.checkResult(indexOfMoves, current);
-	    if (stop) {
-		return;
-	    }
-	}
-
     }
 
     @SuppressWarnings("unused")
