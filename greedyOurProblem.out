@@ -1,0 +1,14 @@
+Differenz: 4, Tiefe: 1, Züge bisher: 0
+Differenz: 4, Tiefe: 2, Züge bisher: 0
+Differenz: 4, Tiefe: 3, Züge bisher: 0
+Differenz: 4, Tiefe: 4, Züge bisher: 0
+Differenz: 4, Tiefe: 5, Züge bisher: 0
+CHECK-Diff: 2
+Differenz: 2, Tiefe: 1, Züge bisher: 23
+Differenz: 2, Tiefe: 2, Züge bisher: 23
+Differenz: 2, Tiefe: 3, Züge bisher: 23
+Differenz: 2, Tiefe: 4, Züge bisher: 23
+Differenz: 2, Tiefe: 5, Züge bisher: 23
+CHECK-Diff: 5
+Lösung (46): [1, 15, 5, 5, 14, 15, 15, 5, 5, 4, 15, 15, 5, 1, 15, 15, 5, 5, 1, 15, 5, 5, 14, 14, 5, 5, 15, 1, 5, 5, 15, 15, 4, 5, 5, 15, 11, 5, 5, 15, 15, 14, 5, 5, 15, 1]
+TIME: 813 sek

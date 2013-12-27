@@ -189,22 +189,25 @@ public abstract class AbstractZustand<T> {
 	return result;
     }
 
-    /**
-     * fills result with values of this object.
-     * 
-     * @param result
-     * @return result
-     */
-    public AbstractZustand<T> fillCopy(AbstractZustand<T> result) {
-	for (int i = 0; i < 20; i++) {
-	    // result.rechts = new ArrayList<Integer>(rechts);
-	    // result.rechts.set(i, new Integer(rechts.[i]));
-	    result.rechts[i] = rechts[i];
-	    // result.links = new ArrayList<Integer>(links);
-	    // result.links.set(i, new Integer(links.[i]));
-	    result.links[i] = links[i];
+    @SuppressWarnings("unchecked")
+    public AbstractZustand<T> getCopy() {
+	try {
+	    AbstractZustand<T> result = this.getClass().newInstance();
+	    for (int i = 0; i < 20; i++) {
+		// result.rechts = new ArrayList<Integer>(rechts);
+		// result.rechts.set(i, new Integer(rechts.[i]));
+		result.rechts[i] = rechts[i];
+		// result.links = new ArrayList<Integer>(links);
+		// result.links.set(i, new Integer(links.[i]));
+		result.links[i] = links[i];
+	    }
+	    return result;
+	} catch (InstantiationException e) {
+	    e.printStackTrace();
+	} catch (IllegalAccessException e) {
+	    e.printStackTrace();
 	}
-	return result;
+	return null;
     }
 
 }

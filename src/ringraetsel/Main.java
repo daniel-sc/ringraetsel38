@@ -1,5 +1,8 @@
 package ringraetsel;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -13,48 +16,64 @@ public class Main {
 
 	Date startZeit = new Date();
 
-	final List<List<Integer>> basicMoves = getBasicMoves();
+	// solutionToOurProblem();
+	// List<List<Integer>> basicMoves = getBasicMoves();
+	// System.out.println(basicMoves.size());
+	ZustandFarben start = new ZustandFarben();
+	start.problem();
+	ZustandFarben ziel = new ZustandFarben();
+	ziel.reset();
 
-	System.out.println("anzahl basic moves: " + basicMoves.size());
+	List<Integer> result = solveGreedy(start, ziel);
 
+	System.out.println("Lösung (" + result.size() + "): " + result);
+
+	// tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new
+	// CheckResult<Farbe>() {
+	//
+	// @Override
+	// public void checkResult(List<Integer> indexOfMoves,
+	// AbstractZustand<Farbe> current) {
+	// if (current.equals(ziel)) {
+	// System.out.println("YEAY!!!");
+	// System.out.println("indexOfMoves: " + indexOfMoves);
+	// printDiff(basicMoves, indexOfMoves, current.vergleichen(ziel, 4));
+	// }
+	// // List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
+	// // if (diff.size() < 4) {
+	// // printDiff(basicMoves, indexOfMoves, diff);
+	// // }
+	// }
+	// }, basicMoves);
+
+	Date end = new Date();
+
+	System.out.println("TIME: " + (end.getTime() - startZeit.getTime()) / 1000 + " sek");
+    }
+
+    @SuppressWarnings("unused")
+    private static void solutionToOurProblem() {
 	final ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 	final ZustandFarben start = new ZustandFarben();
 	start.problem();
 	Integer[] firstMoves = new Integer[] { 1, 15, 5, 5, 14, 15, 15, 5, 5, 19, 15, 5, 5, 16, 15, 15, 5, 5, 9, 15,
 		15, 5, 16 };
+	System.out.println("firstMoves.length=" + firstMoves.length);
 	int i = 0;
 	for (Integer move : firstMoves) {
 	    start.drehen((i++ % 2) == 0, move);
 	}
 	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
-	
-	Integer[] secondMoves = new Integer[]{11, 5, 5, 15, 4, 5, 5, 15, 15, 9, 5, 15, 15, 16, 5, 5, 15, 15, 16, 5, 15, 15, 9};
+
+	Integer[] secondMoves = new Integer[] { 11, 5, 5, 15, 4, 5, 5, 15, 15, 9, 5, 15, 15, 16, 5, 5, 15, 15, 16, 5,
+		15, 15, 9 };
+	System.out.println("secondMoves.length=" + secondMoves.length);
 	i++;
 	for (Integer move : secondMoves) {
 	    start.drehen((i++ % 2) == 0, move);
 	}
 	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
-
-//	tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new CheckResult<Farbe>() {
-//
-//	    @Override
-//	    public void checkResult(List<Integer> indexOfMoves, AbstractZustand<Farbe> current) {
-//		if (current.equals(ziel)) {
-//		    System.out.println("YEAY!!!");
-//		    System.out.println("indexOfMoves: " + indexOfMoves);
-//		    printDiff(basicMoves, indexOfMoves, current.vergleichen(ziel, 4));
-//		}
-////		List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
-////		if (diff.size() < 4) {
-////		    printDiff(basicMoves, indexOfMoves, diff);
-////		}
-//	    }
-//	}, basicMoves);
-
-	Date end = new Date();
-
-	System.out.println("TIME: " + (end.getTime() - startZeit.getTime()) / 1000 + " sek");
     }
 
     private static List<List<Integer>> getBasicMoves() {
@@ -67,12 +86,15 @@ public class Main {
 
 	final ZustandEindeutigeKugeln start = new ZustandEindeutigeKugeln();
 
-	tiefensucheNoStore(5, start.fillCopy(new ZustandEindeutigeKugeln()), new CheckResult<Integer>() {
+	// tiefe:5 -> 0 sek, 74 elemente
+	// tiefe:6 -> 9 sek, 84? elemente
+	// tiefe:7 -> 199 sek, 1558 elemente
+	tiefensucheNoStore(5, start.getCopy(), new CheckResult<Integer>() {
 
 	    @Override
-	    public void checkResult(List<Integer> indexOfMoves, AbstractZustand<Integer> current) {
+	    public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<Integer> current) {
 		if (indexOfMoves.size() == 0)
-		    return;
+		    return false;
 		int max_diff = 4;
 		List<Aenderung<Integer>> diff = current.vergleichen(start, max_diff + 1);
 		if (diff.size() < max_diff + 1) {
@@ -83,49 +105,39 @@ public class Main {
 		    }
 		    basicMoves.add(basicMove);
 		}
+		return false;
 	    }
 
 	}, moves);
 	return basicMoves;
     }
 
-    /**
-     * @param z
-     * @param distRechts
-     *            >=0; <=19
-     * @param distsLinks
-     */
-    public static void johannes_min1(ZustandEindeutigeKugeln z, int distRechts, int distsLinks) {
-	z.drehen(true, distRechts);
-	z.drehen(false, distsLinks);
-	z.drehen(true, distsLinks);
-	z.drehen(false, distRechts);
-    }
+    public static ZustandFarben userInput() {
+	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	try {
+	    System.out.println("Rechte Seite (im Uhrzeigersinn):");
+	    String rechts = "";
 
-    public static void johannes() {
-	ZustandEindeutigeKugeln zustand = new ZustandEindeutigeKugeln();
-	ZustandEindeutigeKugeln bak = new ZustandEindeutigeKugeln();
-	zustand.fillCopy(bak);
+	    do {
+		rechts = reader.readLine();
+	    } while (rechts.length() != 20);
 
-	johannes_min1(zustand, -5, 5);
+	    System.out.println("Linke Seite (gegen den Uhrzeigersinn):");
 
-	System.out.println("änderung:");
-	System.out.println(zustand.vergleichen(bak, 10));
-    }
+	    String links = "";
+	    do {
+		links = reader.readLine();
+	    } while (links.length() != 20);
 
-    public static void daniel() {
-	for (int distLinks = 1; distLinks < 20; distLinks++) {
-	    for (int distRechts = 1; distRechts < 20; distRechts++) {
-		ZustandEindeutigeKugeln zustand = new ZustandEindeutigeKugeln();
-		ZustandEindeutigeKugeln bak = new ZustandEindeutigeKugeln();
-		zustand.fillCopy(bak);
-		johannes_min1(zustand, distRechts, distLinks);
-		List<Aenderung<Integer>> diff = zustand.vergleichen(bak, 10);
-		if (diff.size() <= 6 || diff.size() % 2 == 1) {
-		    System.out.println("distrechts: " + distRechts);
-		    System.out.println(diff);
-		}
+	    ZustandFarben result = new ZustandFarben();
+	    for (int i = 0; i < 20; i++) {
+		result.setRechts(i, Farbe.valueOf(rechts.toUpperCase().substring(i, i + 1)));
+		result.setLinks(i, Farbe.valueOf(links.toUpperCase().substring(i, i + 1)));
 	    }
+	    return result;
+	} catch (IOException e) {
+	    e.printStackTrace();
+	    return null;
 	}
     }
 
@@ -143,12 +155,76 @@ public class Main {
     }
 
     /**
+     * Loest start zu ziel mit einem 'greedy' ansatz
+     * 
+     * @param z
+     * @return list of moves, starting right
+     */
+    private static <T> List<Integer> solveGreedy(AbstractZustand<T> start, final AbstractZustand<T> ziel) {
+	List<List<Integer>> basicMoves = getBasicMoves();
+	List<Integer> result = new ArrayList<Integer>();
+
+	final SolveGreedyContext context = new SolveGreedyContext();
+
+	context.currentDiff = start.vergleichen(ziel, 38).size();
+	int tiefe = 1;
+	while (context.currentDiff > 0) {
+
+	    context.indexOfMovesBest = null;
+	    System.out.println("Differenz: " + context.currentDiff + ", Tiefe: " + tiefe + ", Züge bisher: "
+		    + result.size());
+	    tiefensucheNoStore(tiefe, start.getCopy(), new CheckResult<T>() {
+
+		@Override
+		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
+		    List<Aenderung<T>> diff = current.vergleichen(ziel, context.currentDiff);
+		    if (diff.size() < context.currentDiff) {
+			context.indexOfMovesBest = new ArrayList<Integer>(indexOfMoves);
+			context.currentDiff = diff.size();
+			return true;
+		    }
+		    return false;
+
+		}
+	    }, basicMoves);
+
+	    if (context.indexOfMovesBest != null) {
+		for (Integer i : context.indexOfMovesBest) {
+		    start.drehen(result.size() % 2 == 0, basicMoves.get(i));
+		    result.addAll(basicMoves.get(i));
+		}
+
+		// da die tiefensuche immer mit rechts startet muss hier ggf.
+		// ein nullzug simuliert werden:
+		if (result.size() % 2 == 1) {
+		    result.add(0);
+		}
+		System.out.println("CHECK-Diff: " + start.vergleichen(ziel, 38).size());
+		tiefe = 1;
+		context.indexOfMovesBest = null;
+	    } else {
+		tiefe++;
+	    }
+
+	}
+
+	return result;
+
+    }
+
+    private static class SolveGreedyContext {
+	int currentDiff;
+	List<Integer> indexOfMovesBest;
+    }
+
+    /**
+     * die erste drehung ist immer nach rechts
+     * 
      * @param tiefe
-     * @param start
+     * @param current
      *            will be used and modified!
      * @param resultChecker
      * @param moves
-     * @param type
      */
     public static <T> void tiefensucheNoStore(int tiefe, AbstractZustand<T> current, CheckResult<T> resultChecker,
 	    List<List<Integer>> moves) {
@@ -195,7 +271,10 @@ public class Main {
 		size++;
 	    }
 
-	    resultChecker.checkResult(indexOfMoves, current);
+	    boolean stop = resultChecker.checkResult(indexOfMoves, current);
+	    if (stop) {
+		return;
+	    }
 	}
 
     }
