@@ -235,6 +235,7 @@ public class Main {
 		zuege.remove(i);
 		if (zuege.size() > i) {
 		    zuege.set(i - 1, (zuege.get(i - 1) + zuege.get(i)) % 20);
+		    zuege.remove(i);
 		}
 	    }
 	    i++;
