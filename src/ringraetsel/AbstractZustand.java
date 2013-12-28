@@ -29,6 +29,21 @@ public abstract class AbstractZustand<T> {
 	this.rechts = rechts;
 	this.links = links;
     }
+    
+    /**
+     * @param anzDrehungen
+     * @return
+     */
+    public void mix(int anzDrehungen){
+    	for (int i=0;i<anzDrehungen; i++){
+    		
+    		int high=19;
+    		int low=1;
+    		int drehzahl=(int) (Math.random() * (high - low) + low);
+    		
+    		drehen((i%2==0), drehzahl);
+    	}   	
+    }
 
     public T getRechts(int i) {
 	return rechts[(start_rechts + i) % 20];
