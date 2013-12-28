@@ -20,14 +20,11 @@ public class Tiefensuche {
 	final List<Future<?>> tasks = new ArrayList<>();
 
 	for (int i = 0; i < moves.size(); i++) {
-	    // for(List<Integer> move : moves) {
 	    final List<Integer> move = moves.get(i);
 	    final Integer firstIndex = i;
 	    // e.execute(new Runnable() {
 	    tasks.add(e.submit(new Callable<Boolean>() {
 		public Boolean call() throws Exception {
-		    // @Override
-		    // public void run() {
 
 		    AbstractZustand<T> threadCurrent = current.getCopy();
 		    threadCurrent.drehen(true, move);
@@ -56,11 +53,6 @@ public class Tiefensuche {
 	    }));
 	}
 
-	try {
-	    Thread.sleep(1000);
-	} catch (InterruptedException e2) {
-	    e2.printStackTrace();
-	}
 	// e.shutdown();
 
 	try {

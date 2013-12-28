@@ -76,6 +76,7 @@ public class Main {
 	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
     }
 
+    @SuppressWarnings("unused")
     private static List<List<Integer>> getBasicMoves() {
 	final List<List<Integer>> basicMoves = new ArrayList<List<Integer>>();
 
@@ -216,6 +217,7 @@ public class Main {
 
 	}
 
+	zuegeKuerzen(result);
 	return result;
 
     }
@@ -223,6 +225,20 @@ public class Main {
     private static class SolveGreedyContext {
 	int currentDiff;
 	List<Integer> indexOfMovesBest;
+    }
+
+    public static void zuegeKuerzen(List<Integer> zuege) {
+	Integer integerNull = new Integer(0);
+	int i = 1;
+	while (i < zuege.size()) {
+	    if (zuege.get(i).equals(integerNull)) {
+		zuege.remove(i);
+		if (zuege.size() > i) {
+		    zuege.set(i - 1, (zuege.get(i - 1) + zuege.get(i)) % 20);
+		}
+	    }
+	    i++;
+	}
     }
 
     @SuppressWarnings("unused")
