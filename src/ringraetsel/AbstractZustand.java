@@ -39,7 +39,7 @@ public abstract class AbstractZustand<T> {
 
 	    int high = 19;
 	    int low = 1;
-	    int drehzahl = (int) (Math.random() * (high - low) + low);
+	    int drehzahl = (int) (Math.random() * (high++ - low) + low);
 
 	    drehen((i % 2 == 0), drehzahl);
 	}

@@ -20,14 +20,13 @@ public class Main {
 	// List<List<Integer>> basicMoves = getBasicMoves();
 	// System.out.println(basicMoves.size());
 	ZustandFarben start = new ZustandFarben();
-	start.mix(10);
+	start.mix(999);
 	System.out.println(start);
 
 	ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 
 	List<Integer> result = solveGreedy(start, ziel);
-
 	System.out.println("Lösung (" + result.size() + "): " + result);
 
 	// tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new
@@ -168,7 +167,7 @@ public class Main {
 	    context.indexOfMovesBest = null;
 	    System.out.println("Differenz: " + context.currentDiff + ", Tiefe: " + tiefe + ", Züge bisher: "
 		    + result.size());
-	    Tiefensuche.tiefensucheParallel(tiefe, start.getCopy(), new CheckResult<T>() {
+	    Tiefensuche.tiefensucheNoStore(tiefe, start.getCopy(), new CheckResult<T>() {
 
 		@Override
 		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
@@ -189,7 +188,7 @@ public class Main {
 		    return false;
 
 		}
-	    }, basicMoves, 3);
+	    }, basicMoves);
 
 	    if (context.indexOfMovesBest != null) {
 		List<Integer> currentMoves = new ArrayList<Integer>();
@@ -216,6 +215,7 @@ public class Main {
 	}
 
 	zuegeKuerzen(result);
+	zuegeKuerzen(result);
 	return result;
 
     }
@@ -235,8 +235,10 @@ public class Main {
 		    zuege.set(i - 1, (zuege.get(i - 1) + zuege.get(i)) % 20);
 		    zuege.remove(i);
 		}
+	    
 	    }
-	    i++;
+	    else
+	    	i++;
 	}
     }
 
