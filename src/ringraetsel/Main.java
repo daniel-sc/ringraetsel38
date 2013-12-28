@@ -79,10 +79,7 @@ public class Main {
     private static List<List<Integer>> getBasicMoves() {
 	final List<List<Integer>> basicMoves = new ArrayList<List<Integer>>();
 
-	final List<List<Integer>> moves = new ArrayList<List<Integer>>();
-	for (int i = 1; i < 20; i++) {
-	    moves.add(Collections.singletonList(new Integer(i)));
-	}
+	final List<List<Integer>> moves = getSingleMoves();
 
 	final ZustandEindeutigeKugeln start = new ZustandEindeutigeKugeln();
 
@@ -110,6 +107,14 @@ public class Main {
 
 	}, moves);
 	return basicMoves;
+    }
+
+    private static List<List<Integer>> getSingleMoves() {
+	final List<List<Integer>> moves = new ArrayList<List<Integer>>();
+	for (int i = 0; i < 20; i++) {
+	    moves.add(Collections.singletonList(new Integer(i)));
+	}
+	return moves;
     }
 
     public static ZustandFarben userInput() {
@@ -161,7 +166,7 @@ public class Main {
      * @return list of moves, starting right
      */
     private static <T> List<Integer> solveGreedy(AbstractZustand<T> start, final AbstractZustand<T> ziel) {
-	List<List<Integer>> basicMoves = getBasicMoves();
+	List<List<Integer>> basicMoves = /* getBasicMoves() */getSingleMoves();
 	List<Integer> result = new ArrayList<Integer>();
 
 	final SolveGreedyContext context = new SolveGreedyContext();
