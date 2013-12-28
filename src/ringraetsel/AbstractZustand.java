@@ -193,6 +193,29 @@ public abstract class AbstractZustand<T> {
 	return result;
     }
 
+    /**
+     * hoffentlich schneller als {@link #vergleichen(AbstractZustand, int)}
+     * 
+     * @param z
+     * @param max
+     * @return
+     */
+    public int differenz(AbstractZustand<T> z, int max) {
+	int result = 0;
+	for (int i = 0; i < 20; i++) {
+	    if (!getRechts(i).equals(z.getRechts(i))) {
+		result++;
+	    }
+	    if (!getLinks(i).equals(z.getLinks(i)) && i != 0 && i != 15) {
+		result++;
+	    }
+	    if (result >= max)
+		return result;
+	}
+
+	return result;
+    }
+
     @Override
     public String toString() {
 	String result = "";

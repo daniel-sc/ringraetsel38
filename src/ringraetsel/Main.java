@@ -168,12 +168,14 @@ public class Main {
 	    context.indexOfMovesBest = null;
 	    System.out.println("Differenz: " + context.currentDiff + ", Tiefe: " + tiefe + ", Züge bisher: "
 		    + result.size());
-	    Tiefensuche.tiefensucheNoStore(tiefe, start.getCopy(), new CheckResult<T>() {
+	    Tiefensuche.tiefensucheParallel(tiefe, start.getCopy(), new CheckResult<T>() {
 
 		@Override
 		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
-		    List<Aenderung<T>> diff = current.vergleichen(ziel, context.currentDiff);
-		    if (diff.size() < context.currentDiff) {
+		    // List<Aenderung<T>> diff = current.vergleichen(ziel,
+		    // context.currentDiff);
+		    int diff = current.differenz(ziel, context.currentDiff);
+		    if (diff < context.currentDiff) {
 			// System.out.println("indexOfMoves: " + indexOfMoves);
 			// System.out.println("currentDiff(old): " +
 			// context.currentDiff);
@@ -181,13 +183,13 @@ public class Main {
 			// diff.size());
 			// System.out.println(current);
 			context.indexOfMovesBest = new ArrayList<Integer>(indexOfMoves);
-			context.currentDiff = diff.size();
+			context.currentDiff = diff;
 			return true;
 		    }
 		    return false;
 
 		}
-	    }, basicMoves);
+	    }, basicMoves, 3);
 
 	    if (context.indexOfMovesBest != null) {
 		List<Integer> currentMoves = new ArrayList<Integer>();
