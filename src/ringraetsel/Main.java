@@ -19,7 +19,8 @@ public class Main {
 	// solutionToOurProblem();
 	// List<List<Integer>> basicMoves = getBasicMoves();
 	// System.out.println(basicMoves.size());
-	ZustandFarben start = userInput();
+	ZustandFarben start = new ZustandFarben();
+	start.mix(10);
 
 	ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
@@ -185,6 +186,10 @@ public class Main {
 		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
 		    List<Aenderung<T>> diff = current.vergleichen(ziel, context.currentDiff);
 		    if (diff.size() < context.currentDiff) {
+			System.out.println("indexOfMoves: " + indexOfMoves);
+			System.out.println("currentDiff(old): " + context.currentDiff);
+			System.out.println("currentDiff(new): " + diff.size());
+
 			context.indexOfMovesBest = new ArrayList<Integer>(indexOfMoves);
 			context.currentDiff = diff.size();
 			return true;
