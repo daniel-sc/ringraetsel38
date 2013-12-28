@@ -21,6 +21,7 @@ public class Main {
 	// System.out.println(basicMoves.size());
 	ZustandFarben start = new ZustandFarben();
 	start.mix(10);
+	System.out.println(start);
 
 	ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
@@ -148,19 +149,6 @@ public class Main {
 	}
     }
 
-    static boolean isDone(List<Integer> zugIndizes, int tiefe, int anzZuege) {
-	// System.out.println("tiefe=" + tiefe + ", anzZuege=" + anzZuege +
-	// ", zugIndizes=" + zugIndizes);
-	if (zugIndizes.size() != tiefe)
-	    return false;
-	for (Integer i : zugIndizes) {
-	    if (i < anzZuege - 1) {
-		return false;
-	    }
-	}
-	return true;
-    }
-
     /**
      * Loest start zu ziel mit einem 'greedy' ansatz
      * 
@@ -186,10 +174,12 @@ public class Main {
 		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
 		    List<Aenderung<T>> diff = current.vergleichen(ziel, context.currentDiff);
 		    if (diff.size() < context.currentDiff) {
-			System.out.println("indexOfMoves: " + indexOfMoves);
-			System.out.println("currentDiff(old): " + context.currentDiff);
-			System.out.println("currentDiff(new): " + diff.size());
-
+			// System.out.println("indexOfMoves: " + indexOfMoves);
+			// System.out.println("currentDiff(old): " +
+			// context.currentDiff);
+			// System.out.println("currentDiff(new): " +
+			// diff.size());
+			// System.out.println(current);
 			context.indexOfMovesBest = new ArrayList<Integer>(indexOfMoves);
 			context.currentDiff = diff.size();
 			return true;
@@ -213,6 +203,7 @@ public class Main {
 		    result.add(0);
 		}
 		System.out.println("CHECK-Diff: " + start.vergleichen(ziel, 38).size());
+		// System.out.println(start);
 		System.out.println("NEXT MOVES (start rechts): " + currentMoves);
 		tiefe = 1;
 		context.indexOfMovesBest = null;

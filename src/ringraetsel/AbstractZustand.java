@@ -29,20 +29,20 @@ public abstract class AbstractZustand<T> {
 	this.rechts = rechts;
 	this.links = links;
     }
-    
+
     /**
      * @param anzDrehungen
      * @return
      */
-    public void mix(int anzDrehungen){
-    	for (int i=0;i<anzDrehungen; i++){
-    		
-    		int high=19;
-    		int low=1;
-    		int drehzahl=(int) (Math.random() * (high - low) + low);
-    		
-    		drehen((i%2==0), drehzahl);
-    	}   	
+    public void mix(int anzDrehungen) {
+	for (int i = 0; i < anzDrehungen; i++) {
+
+	    int high = 19;
+	    int low = 1;
+	    int drehzahl = (int) (Math.random() * (high - low) + low);
+
+	    drehen((i % 2 == 0), drehzahl);
+	}
     }
 
     public T getRechts(int i) {
@@ -197,10 +197,15 @@ public abstract class AbstractZustand<T> {
     public String toString() {
 	String result = "";
 
-	result += "li:\n" + links;
+	result += "li:\n";
+	for (int i = 0; i < 20; i++) {
+	    result += getLinks(i) + ", ";
+	}
 	result += "\n";
-	result += "re:\n" + rechts;
-
+	result += "re:\n";
+	for (int i = 0; i < 20; i++) {
+	    result += getRechts(i) + ", ";
+	}
 	return result;
     }
 
@@ -216,6 +221,8 @@ public abstract class AbstractZustand<T> {
 		// result.links.set(i, new Integer(links.[i]));
 		result.links[i] = links[i];
 	    }
+	    result.start_links = start_links;
+	    result.start_rechts = start_rechts;
 	    return result;
 	} catch (InstantiationException e) {
 	    e.printStackTrace();

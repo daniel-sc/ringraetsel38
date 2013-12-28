@@ -97,24 +97,22 @@ public class Tiefensuche {
     public static <T> void tiefensucheNoStore(int tiefe, AbstractZustand<T> current, CheckResult<T> resultChecker,
 	    List<List<Integer>> moves) {
 
-	List<List<Integer>> zugfolgen = new ArrayList<List<Integer>>();
 	List<Integer> indexOfMoves = new ArrayList<>();
 
 	int noOfMoves = 0;
 
-	while (!Main.isDone(indexOfMoves, tiefe, moves.size())) {
+	while (!Tiefensuche.isDone(indexOfMoves, tiefe, moves.size())) {
 
-	    int size = zugfolgen.size();
+	    int size = indexOfMoves.size();
 	    if (size < tiefe) {
 		current.drehen(noOfMoves % 2 == 0, moves.get(0)); // rechts
 								  // faengts an
-		zugfolgen.add(moves.get(0));
 		noOfMoves += moves.get(0).size();
 		indexOfMoves.add(0);
 	    } else {
 		while (size > 0 && indexOfMoves.get(size - 1).equals(moves.size() - 1)) {
-		    List<Integer> oldmove = zugfolgen.remove(size - 1);
-		    indexOfMoves.remove(size - 1);
+		    int oldindex = indexOfMoves.remove(size - 1);
+		    List<Integer> oldmove = moves.get(oldindex);
 		    current.zurueckDrehen((noOfMoves - oldmove.size()) % 2 == 0, oldmove);
 
 		    noOfMoves -= oldmove.size();
@@ -122,8 +120,8 @@ public class Tiefensuche {
 		}
 
 		// zurueckdrehen
-		List<Integer> oldmove = zugfolgen.remove(size - 1);
 		int oldindex = indexOfMoves.remove(size - 1);
+		List<Integer> oldmove = moves.get(oldindex);
 		current.zurueckDrehen((noOfMoves - oldmove.size()) % 2 == 0, oldmove);
 
 		noOfMoves -= oldmove.size();
@@ -134,7 +132,6 @@ public class Tiefensuche {
 
 		current.drehen(noOfMoves % 2 == 0, newmove);
 		indexOfMoves.add(oldindex + 1);
-		zugfolgen.add(newmove);
 		noOfMoves += newmove.size();
 		size++;
 	    }
@@ -145,6 +142,19 @@ public class Tiefensuche {
 	    }
 	}
 
+    }
+
+    private static boolean isDone(List<Integer> zugIndizes, int tiefe, int anzZuege) {
+        // System.out.println("tiefe=" + tiefe + ", anzZuege=" + anzZuege +
+        // ", zugIndizes=" + zugIndizes);
+        if (zugIndizes.size() != tiefe)
+            return false;
+        for (Integer i : zugIndizes) {
+            if (i < anzZuege - 1) {
+        	return false;
+            }
+        }
+        return true;
     }
 
 }
