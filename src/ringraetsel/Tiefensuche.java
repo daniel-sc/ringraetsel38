@@ -36,7 +36,6 @@ public class Tiefensuche {
 	    threadCurrent.drehen(true, move);
 	    List<Integer> indexOfMoves0 = new ArrayList<Integer>();
 	    indexOfMoves0.add(firstIndex);
-	    indexOfMoves0.add(0);
 
 	    boolean stopThread = resultChecker.checkResult(Collections.singletonList(firstIndex), threadCurrent);
 	    if (stopThread) {
@@ -121,7 +120,8 @@ public class Tiefensuche {
     }
 
     /**
-     * die erste drehung ist immer nach rechts
+     * die erste drehung ist immer nach rechts (ausser fuer
+     * indexOfMoves.size()>0!)
      * 
      * @param tiefe
      * @param current
@@ -138,6 +138,8 @@ public class Tiefensuche {
 	    CheckResult<T> resultChecker, List<List<Integer>> moves, List<Integer> indexOfMoves) {
 	// note: indexOfMoves might be bigger than noOfMoves!
 	int noOfMoves = 0;
+	for (Integer i : indexOfMoves)
+	    noOfMoves += moves.get(i).size();
 	final int startSize = indexOfMoves.size();
 	final Integer allMoves = moves.size() - 1;
 
