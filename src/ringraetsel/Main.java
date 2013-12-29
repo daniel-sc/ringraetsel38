@@ -19,14 +19,19 @@ public class Main {
 	// solutionToOurProblem();
 	// List<List<Integer>> basicMoves = getBasicMoves();
 	// System.out.println(basicMoves.size());
-	ZustandFarben start = new ZustandFarben();
-	start.mix(999);
+	 ZustandFarben start = new ZustandFarben();
+	 start.mix(999);
+//	ZustandFarben start = userInput();
 	System.out.println(start);
 
 	ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 
-	List<Integer> result = solveGreedy(start, ziel);
+//	System.out.println("Diff: " + start.differenz(ziel, 38));
+//	start.drehen(true, Arrays.asList(new Integer[] { 0, 0, 14 }));
+//	System.out.println("Diff: " + start.differenz(ziel, 38));
+
+	List<Integer> result = GreedySearch.solveGreedyParallel(start, ziel);
 	System.out.println("Lösung (" + result.size() + "): " + result);
 
 	// tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new
@@ -111,7 +116,7 @@ public class Main {
 	return basicMoves;
     }
 
-    private static List<List<Integer>> getSingleMoves() {
+    static List<List<Integer>> getSingleMoves() {
 	final List<List<Integer>> moves = new ArrayList<List<Integer>>();
 	for (int i = 0; i < 20; i++) {
 	    moves.add(Collections.singletonList(new Integer(i)));
@@ -148,83 +153,6 @@ public class Main {
 	}
     }
 
-    /**
-     * Loest start zu ziel mit einem 'greedy' ansatz
-     * 
-     * @param z
-     * @return list of moves, starting right
-     */
-    private static <T> List<Integer> solveGreedy(AbstractZustand<T> start, final AbstractZustand<T> ziel) {
-	List<List<Integer>> basicMoves = /* getBasicMoves() */getSingleMoves();
-	List<Integer> result = new ArrayList<Integer>();
-
-	final SolveGreedyContext context = new SolveGreedyContext();
-
-	context.currentDiff = start.vergleichen(ziel, 38).size();
-	int tiefe = 1;
-	while (context.currentDiff > 0) {
-
-	    context.indexOfMovesBest = null;
-	    System.out.println("Differenz: " + context.currentDiff + ", Tiefe: " + tiefe + ", Züge bisher: "
-		    + result.size());
-	    Tiefensuche.tiefensucheNoStore(tiefe, start.getCopy(), new CheckResult<T>() {
-
-		@Override
-		public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<T> current) {
-		    // List<Aenderung<T>> diff = current.vergleichen(ziel,
-		    // context.currentDiff);
-		    int diff = current.differenz(ziel, context.currentDiff);
-		    if (diff < context.currentDiff) {
-			// System.out.println("indexOfMoves: " + indexOfMoves);
-			// System.out.println("currentDiff(old): " +
-			// context.currentDiff);
-			// System.out.println("currentDiff(new): " +
-			// diff.size());
-			// System.out.println(current);
-			context.indexOfMovesBest = new ArrayList<Integer>(indexOfMoves);
-			context.currentDiff = diff;
-			return true;
-		    }
-		    return false;
-
-		}
-	    }, basicMoves);
-
-	    if (context.indexOfMovesBest != null) {
-		List<Integer> currentMoves = new ArrayList<Integer>();
-		for (Integer i : context.indexOfMovesBest) {
-		    start.drehen(result.size() % 2 == 0, basicMoves.get(i));
-		    result.addAll(basicMoves.get(i));
-		    currentMoves.addAll(basicMoves.get(i));
-		}
-
-		// da die tiefensuche immer mit rechts startet muss hier ggf.
-		// ein nullzug simuliert werden:
-		if (result.size() % 2 == 1) {
-		    result.add(0);
-		}
-		System.out.println("CHECK-Diff: " + start.vergleichen(ziel, 38).size());
-		// System.out.println(start);
-		System.out.println("NEXT MOVES (start rechts): " + currentMoves);
-		tiefe = 1;
-		context.indexOfMovesBest = null;
-	    } else {
-		tiefe++;
-	    }
-
-	}
-
-	zuegeKuerzen(result);
-	zuegeKuerzen(result);
-	return result;
-
-    }
-
-    private static class SolveGreedyContext {
-	int currentDiff;
-	List<Integer> indexOfMovesBest;
-    }
-
     public static void zuegeKuerzen(List<Integer> zuege) {
 	Integer integerNull = new Integer(0);
 	int i = 1;
@@ -235,10 +163,10 @@ public class Main {
 		    zuege.set(i - 1, (zuege.get(i - 1) + zuege.get(i)) % 20);
 		    zuege.remove(i);
 		}
-	    
+
+	    } else {
+		i++;
 	    }
-	    else
-	    	i++;
 	}
     }
 
