@@ -16,41 +16,16 @@ public class Main {
 
 	Date startZeit = new Date();
 
-	// solutionToOurProblem();
-	// List<List<Integer>> basicMoves = getBasicMoves();
-	// System.out.println(basicMoves.size());
-	 ZustandFarben start = new ZustandFarben();
-	 start.mix(999);
-//	ZustandFarben start = userInput();
+	ZustandFarben start = new ZustandFarben();
+	start.mix(999);
+	// ZustandFarben start = userInput();
 	System.out.println(start);
 
 	ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 
-//	System.out.println("Diff: " + start.differenz(ziel, 38));
-//	start.drehen(true, Arrays.asList(new Integer[] { 0, 0, 14 }));
-//	System.out.println("Diff: " + start.differenz(ziel, 38));
-
 	List<Integer> result = GreedySearch.solveGreedyParallel(start, ziel);
 	System.out.println("Lösung (" + result.size() + "): " + result);
-
-	// tiefensucheNoStore(5, start.fillCopy(new ZustandFarben()), new
-	// CheckResult<Farbe>() {
-	//
-	// @Override
-	// public void checkResult(List<Integer> indexOfMoves,
-	// AbstractZustand<Farbe> current) {
-	// if (current.equals(ziel)) {
-	// System.out.println("YEAY!!!");
-	// System.out.println("indexOfMoves: " + indexOfMoves);
-	// printDiff(basicMoves, indexOfMoves, current.vergleichen(ziel, 4));
-	// }
-	// // List<Aenderung<Farbe>> diff = current.vergleichen(ziel, 4);
-	// // if (diff.size() < 4) {
-	// // printDiff(basicMoves, indexOfMoves, diff);
-	// // }
-	// }
-	// }, basicMoves);
 
 	Date end = new Date();
 

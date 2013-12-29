@@ -81,7 +81,7 @@ public class Tiefensuche {
 			    task.cancel(true);
 			}
 			shutdownThreads(e);
-			System.out.println("ended tiefensuche parallel with result.");
+			// System.out.println("ended tiefensuche parallel with result.");
 			return result;
 
 		    }
@@ -91,7 +91,7 @@ public class Tiefensuche {
 	    }
 
 	    shutdownThreads(e);
-	    System.out.println("ended tiefensuche parallel.");
+	    // System.out.println("ended tiefensuche parallel.");
 	    return null;
 
 	} catch (InterruptedException e1) {
@@ -103,7 +103,7 @@ public class Tiefensuche {
     private static void shutdownThreads(final ExecutorService e) throws InterruptedException {
 	// System.out.println("waiting for termination..");
 	// if (!e.awaitTermination(100, TimeUnit.MILLISECONDS)) {
-	System.out.println("doing shutdown..");
+	// System.out.println("doing shutdown..");
 	e.shutdown();
 	if (!e.awaitTermination(100, TimeUnit.MILLISECONDS)) {
 	    System.out.println("shutdown now..");

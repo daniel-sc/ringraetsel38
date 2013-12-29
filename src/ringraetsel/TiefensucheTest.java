@@ -1,7 +1,5 @@
 package ringraetsel;
 
-import static org.junit.Assert.*;
-
 import java.util.Date;
 import java.util.List;
 
@@ -17,21 +15,35 @@ public class TiefensucheTest {
     @Test
     public void testTiefensucheParallelTime() {
 
+	List<List<Integer>> basicMoves = Main.getSingleMoves();
+
 	ZustandFarben start = new ZustandFarben();
 	start.mix(10);
 
-	ZustandFarben ziel = new ZustandFarben();
+	final ZustandFarben ziel = new ZustandFarben();
 	ziel.reset();
 
 	Date startZeit = new Date();
-	List<Integer> result = GreedySearch.solveGreedy(start.getCopy(), ziel.getCopy());
+	Tiefensuche.tiefensucheNoStore(6, start, new CheckResult<Farbe>() {
+
+	    @Override
+	    public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<Farbe> current) {
+		current.differenz(ziel, 5);
+		return false;
+	    }
+	}, basicMoves);
 	System.out.println("Zeit singleThread:" + (new Date().getTime() - startZeit.getTime()) / 1000 + " sek");
-	System.out.println("result.size = " + result.size());
 
 	startZeit = new Date();
-	GreedySearch.solveGreedyParallel(start.getCopy(), ziel.getCopy());
+	Tiefensuche.tiefensucheParallel(6, start, new CheckResult<Farbe>() {
+
+	    @Override
+	    public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<Farbe> current) {
+		current.differenz(ziel, 5);
+		return false;
+	    }
+	}, basicMoves, 3);
 	System.out.println("Zeit multiThread: " + (new Date().getTime() - startZeit.getTime()) / 1000 + " sek");
-	System.out.println("result.size = " + result.size());
 
     }
 
