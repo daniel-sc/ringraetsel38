@@ -16,16 +16,19 @@ public class Main {
 
 	Date startZeit = new Date();
 
-	ZustandFarben start = new ZustandFarben();
-	start.mix(999);
-	// ZustandFarben start = userInput();
-	System.out.println(start);
+	// List<Integer> result = findBasicMove();
+	// System.out.println(result);
 
-	ZustandFarben ziel = new ZustandFarben();
-	ziel.reset();
-
-	List<Integer> result = GreedySearch.solveGreedyParallel(start, ziel);
-	System.out.println("Lösung (" + result.size() + "): " + result);
+	 ZustandFarben start = new ZustandFarben();
+	 start.mix(999);
+	 // ZustandFarben start = userInput();
+	 System.out.println(start);
+	
+	 ZustandFarben ziel = new ZustandFarben();
+	 ziel.reset();
+	
+	 List<Integer> result = GreedySearch.solveGreedyParallel(start, ziel);
+	 System.out.println("Lösung (" + result.size() + "): " + result);
 
 	Date end = new Date();
 
@@ -55,6 +58,28 @@ public class Main {
 	    start.drehen((i++ % 2) == 0, move);
 	}
 	System.out.println("DIFF: " + start.vergleichen(ziel, 5));
+    }
+
+    @SuppressWarnings("unused")
+    private static List<Integer> findBasicMove() {
+
+	final ZustandEindeutigeKugeln ziel = new ZustandEindeutigeKugeln();
+	final List<List<Integer>> moves = new ArrayList<List<Integer>>();
+	for (int i = 1; i < 20; i++)
+	    moves.add(Collections.singletonList(new Integer(i)));
+
+	return Tiefensuche.tiefensucheParallel(7, new ZustandEindeutigeKugeln(), new CheckResult<Integer>() {
+
+	    @Override
+	    public boolean checkResult(List<Integer> indexOfMoves, AbstractZustand<Integer> current) {
+		int maxdiff = 3;
+		if (indexOfMoves.size() == 0)
+		    return false;
+		if (ziel.differenz(current, maxdiff + 1) <= maxdiff)
+		    return true;
+		return false;
+	    }
+	}, moves, 4);
     }
 
     @SuppressWarnings("unused")
